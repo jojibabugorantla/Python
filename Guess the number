@@ -4,13 +4,17 @@ secret = random.randint(1, 100)
 attempts = 0
 
 while True:
-    guess = int(input("Guess the number (1 to 100): "))
-    attempts += 1  # Count this guess
-    
-    if guess > secret:
-        print("Too high")
-    elif guess < secret:
-        print("Too low")
+    if attempts <= 7:
+        guess = int(input("Guess the number (1 to 100): "))
+        attempts += 1  # Count this guess
+        
+        if guess > secret:
+            print("Too high")
+        elif guess < secret:
+            print("Too low")
+        else:
+            print(f"🎉 You guessed it correct in {attempts} tries!")
+            break
     else:
-        print(f"🎉 You guessed it correct in {attempts} tries!")
+        print(f"Sorry, you didn't guess the number in 7 attempts. The number was",secret)
         break
