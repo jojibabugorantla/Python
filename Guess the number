@@ -6,12 +6,16 @@ max_attempts = 7
 
 while attempts < max_attempts:
     guess = int(input("Guess the number (1 to 100): "))
-    attempts += 1  # Count this guess
+    attempts += 1
 
     if guess > secret:
         print("Too high")
+        if abs(guess - secret) <= 5:
+            print("You're very close!")
     elif guess < secret:
         print("Too low")
+        if abs(guess - secret) <= 5:
+            print("You're very close!")
     else:
         print(f"🎉 You guessed it correct in {attempts} tries!")
         break
